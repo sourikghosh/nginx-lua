@@ -1,2 +1,4 @@
 *_temp
 logs/*
+
+curl -i localhost:8080/quiz/v1/health

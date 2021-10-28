@@ -1,11 +1,14 @@
 FROM openresty/openresty:1.19.9.1-0-alpine
 
-ENV JWT_SECRET="WINUALLBACKEND"
+# JWT_SECRET is mandatory
+# ENV JWT_SECRET=""
 
 WORKDIR /app
 
-COPY ./ ./
+COPY lua /usr/local/openresty/nginx/lua
+COPY conf/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 
-RUN nginx -p /app -t
+RUN apk add curl 
+RUN nginx -p /usr/local/openresty/nginx -t
 
-RUN nginx -p /app
+EXPOSE 8080
