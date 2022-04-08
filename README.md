@@ -9,7 +9,7 @@ uses openresty lua module to decode JWT from http-header
   docker build -t nginx-img .
   ```
   ```bash
-  docker run -e JWT_SECRET "your_jwt_secret" nginx-img
+  docker run -e JWT_SECRET="your_jwt_secret" nginx-img
   ```
 - Using Binary
   requires [openresty nginx](https://openresty.org/en/download.html)
